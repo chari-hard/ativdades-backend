@@ -45,8 +45,14 @@ public class ContaBancaria {
     }
 
     public void sacar(double sacar){
-        if (sacar <= saldo){
-            saldo = saldo - sacar;
+        if (sacar <= (saldo + limite)){
+            if(sacar <= saldo){
+                saldo = saldo - sacar;
+            } else if(sacar > saldo) {
+                limite = limite - (sacar - saldo);
+                saldo = 0;
+            }
+
         } else {
             System.out.print("Não é possível sacar um dinheiro que voce nao tem né plmdd");
         }
