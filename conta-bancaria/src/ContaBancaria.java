@@ -32,9 +32,6 @@ public class ContaBancaria {
 
     ///////////////////////////////////////
 
-    public void saldoInicial(){
-        saldo = 0;
-    }
 
     public void depositar(double depositar){
         if(depositar > 0) {
