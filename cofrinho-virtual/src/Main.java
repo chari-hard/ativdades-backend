@@ -12,7 +12,7 @@ public class Main {
         do {
             System.out.printf("%n%n============================================%n");
             System.out.println("Bem-vindo(a) ao seu cofrinho virtual!");
-            cofrinho.getStatus();
+            System.out.println(cofrinho.getStatus());
 
             if (cofrinho.getMeta() == 0){
                 System.out.print("- Para começar, defina uma meta: ");
@@ -41,13 +41,11 @@ public class Main {
                 case 1:
                     System.out.print("Insira o valor que deseja depositar: ");
                     cofrinho.adicionarDinheiro(sc.nextDouble());
-                    System.out.print("Depositado com sucesso! Retornando ao menu...");
                     break;
 
                 case 2:
                     System.out.print("Insira o valor que deseja sacar:");
                     cofrinho.retirarDinheiro(sc.nextDouble());
-                    System.out.println("Sacado com sucesso! Retornando ao menu...");
                     break;
 
                 case 3:
@@ -56,6 +54,8 @@ public class Main {
                     break;
 
                 case 4:
+                    System.out.println("Você matou ele.");
+                    cofrinho.matarPorquinho();
                     break;
 
                 default:

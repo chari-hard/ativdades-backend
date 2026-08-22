@@ -20,21 +20,33 @@ public class Cofrinho {
 
 
     public double getSaldo(){
+        if (!vida) {
+           this.saldo = 0;
+        }
         return this.saldo;
     }
 
     public double getMeta(){
+        if (!vida){
+            this.meta = 0.001;
+        }
         return this.meta;
     }
 
     public double getProgresso(){
         double porcentagem;
         porcentagem = (saldo / meta) * 100;
+
+        if (!vida){
+            porcentagem = 0;
+        }
+
         return porcentagem;
+
     }
 
     public String getStatus() {
-        if (vida){
+        if (!vida){
             return "VOCÊ MATOU ELE! SEU MONSTRO";
         } else if (this.saldo == 0){
             return "Meta não iniciada";
@@ -43,6 +55,8 @@ public class Cofrinho {
         } else {
             return "Economizando...";
         }
+
+
     }
 
     //--------
@@ -69,12 +83,14 @@ public class Cofrinho {
     public void adicionarDinheiro(double valorDepositado){
         if (valorValido(valorDepositado)){
             this.saldo += valorDepositado;
+            System.out.print("Depositado com sucesso! Retornando ao menu...");
         }
     }
 
     public void retirarDinheiro(double valorRetirado){
         if (valorExistente(valorRetirado)){
             this.saldo -= valorRetirado;
+            System.out.println("Sacado com sucesso! Retornando ao menu...");
         } else {
             System.out.print("ERRO: você não possui saldo suficiente");
         }
