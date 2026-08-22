@@ -33,6 +33,7 @@ public class Main {
             System.out.println("4 - matar.");
 
             opcaoEscolhida = sc.nextInt();
+            sc.nextLine();
 
 
 
@@ -54,9 +55,17 @@ public class Main {
                     break;
 
                 case 4:
-                    System.out.println("Você matou ele.");
-                    cofrinho.matarPorquinho();
-                    break;
+                    System.out.println("Você tem certeza?(y/n): ");
+                    String opcaoSelecionada = sc.nextLine();
+
+                    if (opcaoSelecionada.equals("y")){
+                        System.out.println("Você matou ele.");
+                        cofrinho.matarPorquinho();
+                        break;
+                    } else if (opcaoSelecionada.equals("n")) {
+                        System.out.println("Você tem um bom coração.");
+                        break;
+                    }
 
                 default:
                     System.out.print("Insira uma opção válida!");
